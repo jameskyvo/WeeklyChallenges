@@ -75,17 +75,77 @@ namespace ChallengesWithTestsMark8
 
         public bool MajorityOfElementsInArrayAreNull(object[] objs)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            int total = 0;
+            foreach(object obj in objs)
+            {
+                if(obj == null)
+                {
+                    count++;
+                    total++;
+                }
+                else
+                {
+                    total++;
+                }
+            }
+            if (count > (total / 2))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public double AverageEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+            else 
+            {
+                double sum = 0;
+                double numOfEvens = 0;
+                foreach (int number in numbers)
+                {
+                    if (number % 2 == 0)
+                    {
+                        sum += number;
+                        numOfEvens++;
+                    }
+                }
+                if (numOfEvens > 0)
+                {
+                    return sum / numOfEvens;
+                }
+                else 
+                { 
+                    return 0; 
+                }
+            }
         }
 
         public int Factorial(int number)
         {
-            throw new NotImplementedException();
+            if (number == 0)
+            {
+                return 1;
+            }
+            else if (number < 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                for (int i = number - 1; i > 0; i--)
+                {
+                    number *= i;
+                }
+                return number;
+            }
         }
     }
 }
